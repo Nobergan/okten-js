@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homework 1</title>
+  </head>
+  <body>
+    <!--Створити змінні. Присвоїти кожному з них значення: ‘hello’,’owu’,’com’, ‘ua’, 1, 10, -999, 123, 3.14, 2.7, 16, true, false.-->
+    <!--Вивести кожну змінну за допомогою: console.log-->
+    <script>
+      const hello = "hello";
+      const owu = "owu";
+      const com = "com";
+      const ua = "ua";
+      const one = 1;
+      const ten = 10;
+      const minus = -999;
+      const oneTwoThree = 123;
+      const pi = 3.14;
+      const twoSeven = 2.7;
+      const sixteen = 16;
+      const trueVariable = true;
+      const falseVariable = false;
+
+      console.log(
+        hello,
+        owu,
+        com,
+        ua,
+        one,
+        ten,
+        minus,
+        oneTwoThree,
+        pi,
+        twoSeven,
+        sixteen,
+        trueVariable,
+        falseVariable
+      );
+    </script>
+
+    <!--    Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ. З’єднати їх в одну змінну person (Не об’єкт, просто за допомогою конкатенації)-->
+    <script>
+      const firstName = "Volodymyr";
+      const middleName = "Valerievich";
+      const lastName = "Kostetskyi";
+      const person = firstName + " " + middleName + " " + lastName;
+      const person2 = `${firstName} ${middleName} ${lastName}`;
+
+      console.log(person);
+      console.log(person2);
+    </script>
+
+    <!--    За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.-->
+    <!--    let a = 100; let b = ‘100’; let c = true;-->
+    <script>
+      let a = 100;
+      let b = "100";
+      let c = true;
+
+      console.log(typeof a, typeof b, typeof c);
+    </script>
+
+    <!--    Додаткове для тих, хто цікавився prompt`oм-->
+    <!--    – За допомогою 3-х різних prompt() отримати 3 слова які являються вашими Імʼям, По-батькові та роками. Та вивести в консоль-->
+    <script>
+      const name = prompt("Введіть ваше імʼя:");
+      const patronymic = prompt("Введіть ваше по-батькові:");
+      const age = prompt("Скільки вам років:");
+
+      console.log("Імʼя:", name);
+      console.log("По-батькові:", patronymic);
+      console.log("Вік:", age);
+    </script>
+  </body>
+</html>
