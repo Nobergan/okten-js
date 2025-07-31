@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homework 5</title>
+  </head>
+  <body>
+    <script>
+      // Тут ті самі завдання, що і в занятті про базові функції, але зробити їх потрібно за допомоги стрілочних функцій !!!
+
+      // – створити функцію, яка обчислює та повертає площу прямокутника зі сторонами а і б
+      const area = (a, b) => a * b;
+      console.log("area: ", area(10, 20));
+
+      // – створити функцію, яка обчислює та повертає площу кола з радіусом r
+      const circleArea = (radius) => Math.PI * radius * radius;
+      console.log("circleArea:", circleArea(10));
+
+      // – створити функцію, яка обчислює та повертає площу циліндру висотою h, та радіусом r
+      const cylinderArea = (radius, height) => 2 * Math.PI * radius * height;
+      console.log("cylinderArea:", cylinderArea(10, 10));
+
+      // – створити функцію, яка приймає масив та виводить кожен його елемент
+      const printArray = (array) => {
+        array.forEach((item) => console.log("printArrayItem", item));
+
+        return array;
+      };
+      console.log("printArray: ", printArray([1, 2, 3, 4, 5]));
+
+      // – створити функцію, яка створює параграф з текстом. Текст задати через аргумент
+      const createParagraph = (text) => {
+        const p = document.createElement("p");
+        p.textContent = text;
+
+        return document.body.appendChild(p);
+      };
+      console.log("createParagraph: ", createParagraph("Hello World!"));
+
+      // – створити функцію, яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
+      const createList = (text) => {
+        const ul = document.createElement("ul");
+        ul.innerHTML = `<li>${text}</li><li>${text}</li><li>${text}</li>`;
+
+        return document.body.appendChild(ul);
+      };
+      console.log("createList: ", createList("Hello World!"));
+
+      // – створити функцію, яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+      const createList2 = (text, count) => {
+        const ul = document.createElement("ul");
+
+        for (let i = 0; i < count; i++) {
+          ul.innerHTML += `<li>${text}</li>`;
+        }
+
+        return document.body.appendChild(ul);
+      };
+
+      console.log("createList2: ", createList2("Count li!", 10));
+
+      // – створити функцію, яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+      const createListOfPrimitives = (array) => {
+        const ul = document.createElement("ul");
+
+        array.forEach((item) => (ul.innerHTML += `<li>${item}</li>`));
+
+        return document.body.appendChild(ul);
+      };
+      console.log(
+        "createListOfPrimitives: ",
+        createListOfPrimitives([1, "Hello", true])
+      );
+
+      // – створити функцію, яка приймає масив об’єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об’єкту окремий блок.
+      const createListOfObjects = (users) => {
+        const wrapper = document.createElement("div");
+
+        users.forEach((user) => {
+          const p = document.createElement("p");
+          p.innerText = `${user.id} ${user.name} ${user.age}`;
+          wrapper.appendChild(p);
+        });
+
+        return document.body.appendChild(wrapper);
+      };
+      console.log(
+        "createListOfObjects: ",
+        createListOfObjects([
+          { id: 1, name: "John", age: 20 },
+          { id: 2, name: "Mary", age: 25 },
+          { id: 3, name: "Peter", age: 30 },
+          { id: 4, name: "Anna", age: 28 },
+        ])
+      );
+
+      // – створити функцію, яка повертає найменше число з масиву
+      const getMinNumber = (numbers) =>
+        numbers.reduce(
+          (acc, number) => (acc > number ? number : acc),
+          numbers[0]
+        );
+      console.log("getMin: ", getMinNumber([123, 32, 444, 1999, 26534]));
+
+      // – створити функцію sum(arr), яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
+      const sumOfNumbers = (arr) => arr.reduce((acc, item) => acc + item, 0);
+      console.log("sumOfNumbers: ", sumOfNumbers([1, 2, 10]));
+
+      // – створити функцію swap(arr,index1,index2). Функція міняє місцями значення у відповідних індексах
+      // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+      const swap = (arr, index1, index2) => {
+        if (index1 < arr.length && index2 < arr.length) {
+          const temporaryValue = arr[index1];
+          arr[index1] = arr[index2];
+          arr[index2] = temporaryValue;
+        }
+        return arr;
+      };
+      console.log("swap: ", swap([11, 22, 33, 44], 0, 1));
+
+      // – Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+      // Приклад exchange(10000,[{currency:’USD’,value:40},{currency:’EUR’,value:42}],’USD’) // => 250
+      const exchange = (sum, currencyValues, exchangeCurrency) => {
+        const targetCurrency = currencyValues.find(
+          (item) => item.currency === exchangeCurrency
+        );
+
+        exchangeCurrency = targetCurrency.value;
+
+        return sum / exchangeCurrency;
+      };
+
+      console.log(
+        "exchange: ",
+        exchange(
+          10000,
+          [
+            { currency: "USD", value: 40 },
+            { currency: "EUR", value: 42 },
+          ],
+          "USD"
+        )
+      );
+    </script>
+  </body>
+</html>
