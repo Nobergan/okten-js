@@ -73,7 +73,7 @@ console.log(cards);
 //   }
 // );
 
-const suitMap = {
+const cardSuitsMap = {
     spade: 'spades',
     diamond: 'diamonds',
     heart: 'hearts',
@@ -81,7 +81,7 @@ const suitMap = {
 };
 
 const groupedCards = cards.reduce((acc, card) => {
-    acc[suitMap[card.cardSuit]].push(card);
+    acc[cardSuitsMap[card.cardSuit]].push(card);
     return acc;
 }, {
     spades: [],
