@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homework 7</title>
+  </head>
+  <body>
+    <script>
+      // *Через Array.prototype. створити власний foreach, filter
+      Array.prototype.myForEach = function (callback) {
+        for (const item of this) callback(item);
+      };
+
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myForEach((item) =>
+        console.log("myForEach: ", item)
+      );
+
+      // Array.prototype.myForEach = function (callback) {
+      //     for (let i = 0; i < this.length; i++) {
+      //         callback(this[i], i);
+      //     }
+      // };
+      //
+      // ['one', 'two', 'three', 'four', 'five'].myForEach((item, index) => console.log('myForEach: ', `${index}: `, item));
+
+      Array.prototype.myFilter = function (callback) {
+        const filteredArray = [];
+
+        console.log("this: ", this);
+
+        for (const item of this) {
+          if (callback(item)) filteredArray.push(item);
+        }
+
+        return filteredArray;
+      };
+
+      let coursesAndDurationArray = [
+        { title: "JavaScript Complex", monthDuration: 5 },
+        { title: "Java Complex", monthDuration: 6 },
+        { title: "Python Complex", monthDuration: 6 },
+        { title: "QA Complex", monthDuration: 4 },
+        { title: "FullStack", monthDuration: 7 },
+        { title: "Frontend", monthDuration: 4 },
+      ];
+
+      console.log(
+        "myFilter: ",
+        coursesAndDurationArray.myFilter((item) => item.monthDuration > 5)
+      );
+    </script>
+  </body>
+</html>
